@@ -36,8 +36,8 @@ void main() {
                 manager.findStudent(findName);
             }
 
-            case 3 -> {}
-            case 4 -> {}
+            case 3 -> manager.viewAllStudent();
+            case 4 -> manager.sortStudentScore();
             case 5 -> {
                 isRunning = false;
                 System.out.println("Thank you for using this service! " + name);

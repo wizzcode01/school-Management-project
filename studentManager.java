@@ -63,6 +63,21 @@ public class studentManager {
 
     }
 
+    public void viewAllStudent(){
+        for(studentPayload data : payload){
+            data.getViewAllStudent();
+        }
+    }
+
+    public void sortStudentScore(){
+//       for(studentPayload sortedStudent : payload){
+//       }
+       payload.sort((s1 ,s2) -> Integer.compare(s2.getSubjectScores().size(), s1.getSubjectScores().size()));
+    }
+
+
+
+
 
 
 }

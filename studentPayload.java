@@ -21,5 +21,8 @@ public class studentPayload {
         return subjectScores;
     }
 
+    public void getViewAllStudent(){
+       System.out.println(getName() + getSubjectScores());
+    }
 
 }
