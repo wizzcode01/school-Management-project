@@ -5,6 +5,8 @@ void main() {
     boolean isRunning = true;
 
     System.out.println("=====Students Management System=====");
+
+
     while(isRunning){
         System.out.println("\nWhat do you want to do?");
         System.out.println("1. Add Student");
