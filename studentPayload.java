@@ -1,18 +1,24 @@
 package schoolManagement;
 
+import javax.security.auth.Subject;
+import java.util.ArrayList;
+import java.util.Map;
+
 public class studentPayload {
     private String name;
-    private  int studentScore;
-    private String subjectType;
+    private Map<String, Integer> subjectScores;
 
-    public studentPayload(String subjectType, int studentScore, String name){
-        this.subjectType = subjectType;
-        this.studentScore = studentScore;
+    public studentPayload(Map<String, Integer> subjectScores, String name){
+        this.subjectScores = subjectScores;
         this.name = name;
     }
 
-    public void viewStudents(){
+    public String getName(){
+        return  name;
+    }
 
+    public Map<String, Integer> getSubjectScores(){
+        return subjectScores;
     }
 
 

@@ -1,4 +1,5 @@
 import bankingProject.BankAccount;
+import schoolManagement.studentManager;
 
 void main() {
     Scanner scanner = new Scanner(System.in);
@@ -6,6 +7,10 @@ void main() {
 
     System.out.println("=====Students Management System=====");
 
+    System.out.print("Enter student name: ");
+    String name = scanner.nextLine();
+
+    studentManager manager = new studentManager(name);
 
     while(isRunning){
         System.out.println("\nWhat do you want to do?");
@@ -20,17 +25,22 @@ void main() {
 
         switch(choice){
             case 1 -> {
+                System.out.print("Enter number of subject you want to add: ");
+                int numberOfSubject = scanner.nextInt();
+                manager.addStudent(name, numberOfSubject);
 
             }
             case 2 -> {
-
+                System.out.print("Enter student name: ");
+                String findName = scanner.nextLine();
+                manager.findStudent(findName);
             }
 
             case 3 -> {}
             case 4 -> {}
             case 5 -> {
                 isRunning = false;
-                System.out.println("Thank you for using this service! ");
+                System.out.println("Thank you for using this service! " + name);
             }
             default -> System.out.println("Invalid choice.");
         }
