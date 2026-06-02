@@ -6,11 +6,10 @@ void main() {
     boolean isRunning = true;
 
     System.out.println("=====Students Management System=====");
+    System.out.print("Enter your class: ");
+    String className = scanner.nextLine();
 
-    System.out.print("Enter student name: ");
-    String name = scanner.nextLine();
-
-    studentManager manager = new studentManager(name);
+    studentManager manager = new studentManager(className);
 
     while(isRunning){
         System.out.println("\nWhat do you want to do?");
@@ -27,6 +26,8 @@ void main() {
 
         switch(choice){
             case 1 -> {
+                System.out.print("Enter student name: ");
+                String name = scanner.nextLine();
                 System.out.print("Enter number of subject you want to add: ");
                 int numberOfSubject = scanner.nextInt();
                 manager.addStudent(name, numberOfSubject);
@@ -43,7 +44,7 @@ void main() {
             case 4 -> manager.sortStudentScore();
             case 5 -> {
                 isRunning = false;
-                System.out.println("Thank you for using this service! " + name);
+                System.out.println("Thank you for using this service! " + className);
             }
             default -> System.out.println("Invalid choice.");
         }

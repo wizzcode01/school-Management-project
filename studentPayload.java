@@ -25,4 +25,12 @@ public class studentPayload {
        System.out.println(getName() + " " + getSubjectScores());
     }
 
+    public double getAverage(){
+        int total = 0;
+        for(int score : subjectScores.values()){
+            total += score;
+        }
+        return (double) total / subjectScores.size();
+    }
+
 }

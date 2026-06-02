@@ -6,18 +6,24 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class studentManager {
-    private String name;
+    private String className;
     private int studentScore;
     ArrayList<studentPayload> payload = new ArrayList<>();
     Map<String, Integer> subjectScore = new HashMap<>();
    Scanner scanner = new Scanner(System.in);
 
-    public studentManager(String name){
-        this.name = name;
+    public studentManager(String className){
+        this.className = className;
     }
 
     public void addStudent(String name, int numberOfSubject){
         // Temporary list to hold subject names as they are entered
+        for(studentPayload s : payload){
+            if(s.getName().equalsIgnoreCase(name)){
+                System.out.println("Student already exists.");
+                return;
+            }
+        }
         ArrayList<String> temporarySubjectList = new ArrayList<>();
         for(int i = 0; i < numberOfSubject; i++){
                 System.out.print("Enter the subject " + (i + 1) + ": ");
@@ -46,6 +52,7 @@ public class studentManager {
     public void findStudent(String name){
         boolean studentFound = false;
          name = name.trim();
+
        for(studentPayload studentName : payload){
            if(studentName.getName().trim().equalsIgnoreCase(name)){
                studentFound = true;
@@ -70,10 +77,14 @@ public class studentManager {
     }
 
     public void sortStudentScore(){
-//       for(studentPayload sortedStudent : payload){
-//       }
-       payload.sort((s1 ,s2) -> Integer.compare(s2.getSubjectScores().size(), s1.getSubjectScores().size()));
+       payload.sort((s1 ,s2) -> Double.compare(s2.getAverage(), s1.getAverage()));
+        System.out.println("\n===== Top Performing Students =====");
+        for (studentPayload s : payload) {
+            System.out.println(s.getName() + " - Average: " + s.getAverage());
+        }
     }
+
+
 
 
 }
