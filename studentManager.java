@@ -6,14 +6,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class studentManager {
-    Scanner scanner;
     private String name;
     private int studentScore;
     ArrayList<studentPayload> payload = new ArrayList<>();
     Map<String, Integer> subjectScore = new HashMap<>();
+   Scanner scanner = new Scanner(System.in);
+
     public studentManager(String name){
         this.name = name;
-
     }
 
     public void addStudent(String name, int numberOfSubject){
@@ -40,12 +40,14 @@ public class studentManager {
 
        studentPayload payloadLists = new studentPayload(subjectScore, name);
        payload.add(payloadLists);
+       System.out.println("Student data added successfully");
     }
 
     public void findStudent(String name){
         boolean studentFound = false;
+         name = name.trim();
        for(studentPayload studentName : payload){
-           if(studentName.getName().equalsIgnoreCase(name)){
+           if(studentName.getName().trim().equalsIgnoreCase(name)){
                studentFound = true;
                System.out.println("Name: " + studentName.getName());
                System.out.println("Subject and Scores:");
@@ -53,14 +55,12 @@ public class studentManager {
                for(Map.Entry<String, Integer> entry : studentName.getSubjectScores().entrySet()){
                    System.out.println("  " + entry.getKey() + ": " + entry.getValue());
                }
-
+               break;
            }
        }
-
-       if(!studentFound){
-           System.out.println("Student with name " + name + "Not found");
-       }
-
+        if(!studentFound){
+            System.out.println("Student with name " + name + "Not found");
+        }
     }
 
     public void viewAllStudent(){
@@ -74,10 +74,6 @@ public class studentManager {
 //       }
        payload.sort((s1 ,s2) -> Integer.compare(s2.getSubjectScores().size(), s1.getSubjectScores().size()));
     }
-
-
-
-
 
 
 }

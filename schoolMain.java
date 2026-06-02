@@ -23,6 +23,8 @@ void main() {
         System.out.print("Enter your choice: ");
         int choice = scanner.nextInt();
 
+        scanner.nextLine();
+
         switch(choice){
             case 1 -> {
                 System.out.print("Enter number of subject you want to add: ");
@@ -33,6 +35,7 @@ void main() {
             case 2 -> {
                 System.out.print("Enter student name: ");
                 String findName = scanner.nextLine();
+              //  scanner.nextInt();
                 manager.findStudent(findName);
             }
 

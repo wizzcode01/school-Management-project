@@ -22,7 +22,7 @@ public class studentPayload {
     }
 
     public void getViewAllStudent(){
-       System.out.println(getName() + getSubjectScores());
+       System.out.println(getName() + " " + getSubjectScores());
     }
 
 }
